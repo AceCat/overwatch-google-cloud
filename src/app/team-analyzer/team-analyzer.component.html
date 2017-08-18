@@ -1,0 +1,69 @@
+
+<div class='container'>
+
+	<ul class="nav nav-tabs">
+  		<li class="active"><a data-toggle="tab" href="#totals">Team Totals</a></li>
+  		<li><a data-toggle="tab" href="#individual">Individual Characters</a></li>
+	</ul>
+
+	<div class='row'>
+
+
+
+	<div class="tab-content col-md-7 col-md-push-5">
+	  <div id="totals" class="tab-pane fade in active">
+			<div class='chartContainer'>
+				<canvas id="teamStats"></canvas>
+			</div>
+		</div>
+		<div id="individual" class="tab-pane fade">
+			<div class='chartContainer'>
+				<canvas id="individualStats"></canvas>
+			</div>
+		</div>
+	</div>
+
+	<div class='col-md-5 col-md-pull-7 leftSide'>
+
+		<h2 class='emphasizedHeader'>Recommended Characters</h2>
+		<div *ngFor='let recommendation of currentRecommendations'>
+			<h3 class='characterReco' (click)='addReccomendation(recommendation)'>{{recommendation}}</h3>
+		</div>
+
+		<h2 class='emphasizedHeader'>Add a character</h2>
+		<input class='characterInput' list='characterList' [(ngModel)]="selectedCharacter">
+		<datalist id='characterList'>
+			<option *ngFor='let character of characterNames' value={{character.name}} ngDefaultControl></option>
+		</datalist>
+		<button class='btn-success' id='addCharacter' (click)='addCharacter()'>Add Character</button>
+	<p>{{errorMessage}}</p>
+
+		<div [@addCharacter]='state' *ngFor='let character of radarData.datasets let i = index' [ngStyle]="{'background-color':'colors[i]'}" class='col-md-4 col-sm-6 col-xs-6 col-centered charDiv animated SlideInRight' ngDefaultControl>
+			<div class='titleHolder'>
+				<h2 class='charName'><a routerLink='/characters/{{character.label}}'>{{character.label}}</a></h2>
+				<img src={{character.image}}/>
+				<ul class='statsList'>
+				<h3>Stats</h3>
+					<li *ngFor='let stat of character.data let i = index'>{{radarData.labels[i]}}: {{stat}}</li>
+				</ul>
+			</div>
+			<span class="glyphicon glyphicon-remove" (click)='removeCharacterDiv(character)'></span>
+		</div>
+	</div>
+
+
+
+
+
+	<br />
+	<br />
+
+
+
+
+</div>
+
+
+
+
+

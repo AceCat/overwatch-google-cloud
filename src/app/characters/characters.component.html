@@ -1,0 +1,105 @@
+<div class='container'>
+	
+
+
+<div class='row'>
+
+	<div class='col-md-4 leftSegment'>
+		<h1>{{selectedCharacter.name}}</h1>
+		<h2>Role: {{selectedCharacter.role}}</h2>
+		<h2 class='quote'>"{{generatedQuote}}"</h2>
+
+		<img class='characterPortrait' src='../../assets/Overwatch_Images/{{selectedCharacter.portrait}}'/>
+	</div>
+
+
+	<div class='col-md-8'>
+		<h2>Description</h2>
+		<p>{{selectedCharacter.description}}</p>
+
+		<div class='row'>
+			<div class='col-md-10 chartColumn'>
+				<h2>Stat Visualization</h2>
+				<div class='chartContainer'>
+					<canvas id="individualStats"></canvas>
+				</div>
+			</div>
+
+			<div class='col-md-1 statBox'>
+				<ul class='charStats'>
+					<h2>Stats</h2>
+					<li>Damage:{{selectedCharacter.stats.damage}}</li>
+					<li>Disruption:{{selectedCharacter.stats.disruption}}</li>
+					<li>Protection:{{selectedCharacter.stats.protection}}</li>
+					<li>Mobility:{{selectedCharacter.stats.mobility}}</li>
+					<li>Healing:{{selectedCharacter.stats.healing}}</li>
+					<li>Sustain:{{selectedCharacter.stats.sustain}}</li>
+				</ul>
+			</div>
+		</div>
+
+
+
+
+</div>
+
+	<div class='row'>
+		</div>
+
+		<div class='col-md-6'>
+		</div>
+</div>
+
+	<div class='row'>
+	<div>
+		<input [(ngModel)]="newAbility.name" placeholder="Name"/>
+	    <input [(ngModel)]="newAbility.description" placeholder="Description"/>
+	    <input [(ngModel)]="newAbility.image" placeholder="Image Url"/>
+
+	    <input [(ngModel)]="newAbility.abilityStats.damage" placeholder="Damage"/>
+	    <input [(ngModel)]="newAbility.abilityStats.disruption" placeholder="Disruption"/>
+	    <input [(ngModel)]="newAbility.abilityStats.protection" placeholder="Protection"/>
+	    <input [(ngModel)]="newAbility.abilityStats.mobility" placeholder="Mobility"/>
+	    <input [(ngModel)]="newAbility.abilityStats.sustain" placeholder="Sustain"/>
+	    <input [(ngModel)]="newAbility.abilityStats.healing" placeholder="Healing"/>
+
+	    <button (click)="postAbility()">Submit</button>
+    </div>
+    <br />
+    <br />
+
+    <div class='row noMargin'>
+    <div [@abilityAnimation]='abilitiesLength'>
+    	<table class='table'>
+    	<thead>
+    		<tr>
+    			<th>Image</th>
+    			<th>Name</th>
+    			<th>Description</th>
+    			<th>Damage</th>
+    			<th>Disruption</th>
+    			<th>Protection</th>
+    			<th>Mobility</th>
+    			<th>Sustain</th>
+    			<th>Healing</th>
+    		</tr>
+    	</thead>
+    		<tr *ngFor='let ability of selectedCharacter.abilities'>
+    			<td><img class='abilityImage' src='../../assets/Overwatch_Images/abilities/{{ability.image}}'/></td>
+    			<td>{{ability.name}}</td>
+    			<td>{{ability.description}}</td>
+    			<td>{{ability.abilityStats.damage}}</td>
+    			<td>{{ability.abilityStats.disruption}}</td>
+    			<td>{{ability.abilityStats.protection}}</td>
+    			<td>{{ability.abilityStats.mobility}}</td>
+    			<td>{{ability.abilityStats.sustain}}</td>
+    			<td>{{ability.abilityStats.healing}}</td>
+    		</tr>
+
+    	</table>
+    	</div>
+    </div>
+
+	</div>
+
+</div>

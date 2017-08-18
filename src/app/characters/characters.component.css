@@ -1,0 +1,134 @@
+.characterPortrait {
+	width: 100%;
+	background-color: grey;
+}
+
+.quote {
+	font-style: italic;
+}
+
+.charStats{
+	list-style: none;
+	width: 100px;
+	display: inline-block;
+	border-width: 3px;
+	border-radius: 5px;
+	padding-left: 10px;
+	padding-right: 20px;
+	padding-bottom: 10px;
+
+}
+
+.abilityImage{
+	display: block;
+	margin: 0 auto;
+}
+
+.noMargin {
+	margin-left: 0px;
+	margin-right: 0px;
+}
+
+.chartContainer{
+	width: 75%;
+	margin: 0 auto;
+}
+
+.statBox {
+	margin-left: -10%;
+	margin-top: 22%;
+}
+
+table {
+	border-collapse: collapse;
+}
+
+tr {
+	background-color: rgba(33,143,254, .5);
+	border-width: 5px;
+	border-style: solid;
+	border-color: #d3dae5;
+}
+
+
+tr:nth-of-type(odd) { 
+  background: #ff9c00; 
+}
+
+td {
+	border-width: 1px;
+	border-style: solid;
+	border-color: white;
+}
+
+th {
+	padding-right: 5px;
+	font-size: 16px;
+	font-family: Koverwatch;
+	background-color: #d3dae5;
+
+}
+
+@media 
+only screen and (max-width: 1000px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+	/* Force table to not be like tables anymore */
+	table, thead, tbody, th, td, tr { 
+		display: block; 
+	}
+
+	
+	/* Hide table headers (but not display: none;, for accessibility) */
+	thead tr { 
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+	
+	tr { border: 1px solid #ccc; }
+	
+	td { 
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee; 
+		position: relative;
+		padding-left: 0%; 
+	}
+	
+	td:before { 
+		/* Now like a table header */
+		position: relative;
+		/* Top/left values mimic padding */
+		width: 20%;
+		font-weight: bold;
+		padding-right: 10px; 
+	}
+	
+	/*
+	Label the data
+	*/
+	td:nth-of-type(1):before { content: "Image"; }
+	td:nth-of-type(2):before { content: "Name"; }
+	td:nth-of-type(3):before { content: "Description"; }
+	td:nth-of-type(4):before { content: "Damage"; }
+	td:nth-of-type(5):before { content: "Disruption"; }
+	td:nth-of-type(6):before { content: "Protection"; }
+	td:nth-of-type(7):before { content: "Mobility"; }
+	td:nth-of-type(8):before { content: "Sustain"; }
+	td:nth-of-type(9):before { content: "Healing"; }
+
+	.statBox {
+		margin-left: 0;
+		margin-top: 0;
+		margin: 0 auto;
+	}
+
+	.charStats{
+		background-color: white;
+		border-style: none;
+		color: black;
+	}
+
+
+}
