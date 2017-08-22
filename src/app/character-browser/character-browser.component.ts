@@ -26,7 +26,7 @@ export class CharacterBrowserComponent implements OnInit {
   }
 
   getCharacters(){
-  	this.http.get('http://localhost:3000/characters').subscribe(response => {
+  	this.http.get('https://overwhich-server.herokuapp.com/characters').subscribe(response => {
   		var processedResponse = response.json();
   		for(var i = 0; i < processedResponse.length; i++) {
   			if(processedResponse[i].role === 'Offense'){

@@ -206,7 +206,7 @@ export class TeamAnalyzerComponent implements OnInit {
 		if (numChars >= 6) {
 			this.errorMessage = "You can't have more than six characters on a team"
 		} else {
-		this.http.get('http://localhost:3000/characters/' + this.selectedCharacter).subscribe(response => {
+		this.http.get('https://overwhich-server.herokuapp.com/characters/' + this.selectedCharacter).subscribe(response => {
 			var self = this
 			var processedResponse = response.json()
 
@@ -301,7 +301,7 @@ export class TeamAnalyzerComponent implements OnInit {
 	}
 
 	grabAllCharacters(){
-  		this.http.get('http://localhost:3000/characters').subscribe(response => {
+  		this.http.get('https://overwhich-server.herokuapp.com/characters').subscribe(response => {
   		this.allCharacters = response.json();
   		})
   	}

@@ -167,7 +167,7 @@ export class CharactersComponent implements OnInit {
   }
 
   fetchCharacter(name){
-  	this.http.get('http://localhost:3000/characters/' + name).subscribe(response => {
+  	this.http.get('https://overwhich-server.herokuapp.com/characters/' + name).subscribe(response => {
   		var processedResponse = response.json()
 
   		this.selectedCharacter.name = processedResponse.name;
@@ -240,7 +240,7 @@ export class CharactersComponent implements OnInit {
 
 	postAbility(){
 		this.newAbility.character = this.selectedCharacter.id;
-		this.http.post('http://localhost:3000/ability', this.newAbility).subscribe(response => {
+		this.http.post('https://overwhich-server.herokuapp.com/ability', this.newAbility).subscribe(response => {
 			console.log(response.json())
 		})
 	}
