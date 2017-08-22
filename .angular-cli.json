@@ -20,7 +20,7 @@
       "prefix": "app",
       "styles": [
         "../node_modules/bootstrap/dist/css/bootstrap.min.css",
-        "assets/fonts/bignoodletoo.ttf",
+        "/assets/fonts/bignoodletoo.ttf",
         "styles.css"
       ],
       "scripts": [
