@@ -1,8 +1,5 @@
 /* You can add global styles to this file, and also import other style files */
-@font-face {
-    font-family:"Koverwatch";
-    src: url("./assets/fonts/bignoodletoo.ttf");
-}
+
 
 .charDiv {
 	background-color: rgba(33,143,254,.75);
