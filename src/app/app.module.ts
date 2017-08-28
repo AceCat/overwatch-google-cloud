@@ -27,6 +27,11 @@ const routes: Routes = [
     {
     	path: 'characters/:name',
     	component: CharactersComponent
+    },
+    {
+    path: '**',
+    redirectTo: '/about',
+    pathMatch: 'full'
     }
 ]
 
