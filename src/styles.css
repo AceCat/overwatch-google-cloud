@@ -4,11 +4,6 @@
     src: url("./assets/bignoodletoo.ttf");
 }
 
-@font-face {
-	font-family: 'Overwatch';
-	src: url('./assets/koverwatch.ttf');
-}
-
 .charDiv {
 	background-color: rgba(33,143,254,.75);
 	width: 270px;
