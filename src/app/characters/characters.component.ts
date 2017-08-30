@@ -64,6 +64,25 @@ class Stats {
 	healing: Number;
 }
 
+class Suggestion {
+  contributor: String;
+  explanation: String;
+  abilityStats: Stats;
+  character: String;
+  ability: String;
+  id: String;
+  constructor(){
+    this.abilityStats = {
+      damage: 0,
+      disruption: 0,
+      mobility: 0,
+      protection: 0,
+      sustain: 0,
+      healing: 0
+    }
+  }
+}
+
 @Component({
   selector: 'app-characters',
   templateUrl: './characters.component.html',
@@ -115,6 +134,10 @@ export class CharactersComponent implements OnInit {
   selectedCharacter: Character = new Character()
 
   newAbility: Ability = new Ability()
+
+  newSuggestion: Suggestion = new Suggestion()
+
+  showHide: false;
 
   // abilities: Ability[] = [];
 
@@ -244,6 +267,21 @@ export class CharactersComponent implements OnInit {
 			console.log(response.json())
 		})
 	}
+
+  postSuggestion(abilityId){
+    this.newSuggestion.character = this.selectedCharacter.id;
+    this.newSuggestion.ability = abilityId;
+    this.http.post('https://overwhich-server.herokuapp.com/suggestion', this.newSuggestion).subscribe(response => {
+      console.log(response.json())
+    })
+  };
+
+  toggleCollapse(target){
+    console.log(target)
+    var domTarget = $('#' + target)
+    console.log(domTarget);
+    domTarget.toggleClass('collapse');
+  }
 
 
 }

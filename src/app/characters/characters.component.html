@@ -82,6 +82,7 @@
     			<th>Mobility</th>
     			<th>Sustain</th>
     			<th>Healing</th>
+                <th>Suggestion?</th>
     		</tr>
     	</thead>
     		<tr *ngFor='let ability of selectedCharacter.abilities'>
@@ -94,6 +95,54 @@
     			<td>{{ability.abilityStats.mobility}}</td>
     			<td>{{ability.abilityStats.sustain}}</td>
     			<td>{{ability.abilityStats.healing}}</td>
+
+    			<button class='btn-primary' (click)='toggleCollapse(ability._id)' data-toggle='.collapse' attr.data-target='{{ability.id}}'>Make a suggestion</button>
+
+    			<br />
+
+
+
+    			<div class='collapse' id='{{ability._id}}'>
+    				<label for='contributor'>Contributor</label>
+    				<input  class='suggestionInput explanationInput' id='contributor' [(ngModel)]="newSuggestion.contributor" placeholder='Contributor Name/Alias'/>
+                    
+                    <br />
+
+    				<label for='Explanation'>Explanation</label>
+    				<input class='suggestionInput explanationInput'[(ngModel)]="newSuggestion.explanation" placeholder='Explanation of suggestion'/>
+
+                    <br />
+
+    				<label for='Damage'>Suggested Damage</label>
+    				<input id='Damage' [(ngModel)]="newSuggestion.abilityStats.damage" placeholder='Damage'/>
+                    <br />
+
+    				<label for='Disruption'>Suggested Disruption</label>
+    				<input id='Disruption' [(ngModel)]="newSuggestion.abilityStats.disruption" placeholder='Disruption'/>
+
+                    <br />
+
+    				<label for='Protection'>Suggested Protection</label>
+    				<input id="Protection" [(ngModel)]="newSuggestion.abilityStats.protection" placeholder='Protection'/>
+
+                    <br />
+
+    				<label for='Mobility'>Suggested Mobility</label>
+    				<input id='Mobility' [(ngModel)]="newSuggestion.abilityStats.mobility" placeholder='Mobility'>
+
+                    <br />
+
+    				<label for='Sustain'>Suggested Sustain</label>
+    				<input id='Sustain' [(ngModel)]="newSuggestion.abilityStats.sustain" placeholder='Sustain'>
+
+                    <br />
+
+    				<label for='Healing'>Suggested Healing</label>
+    				<input id='Healing' [(ngModel)]="newSuggestion.abilityStats.healing" placeholder='Healing'>
+
+    				<button class='btn-success suggestionBTN' (click)="postSuggestion(ability._id)">Submit</button>
+
+    		</div>
     		</tr>
 
     	</table>

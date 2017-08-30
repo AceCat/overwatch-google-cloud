@@ -10,6 +10,7 @@ import { TeamAnalyzerComponent } from './team-analyzer/team-analyzer.component';
 import { CharactersComponent } from './characters/characters.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { CharacterBrowserComponent } from './character-browser/character-browser.component';
+import { BootstrapModalModule } from 'ng2-bootstrap-modal';
 
 const routes: Routes = [
 	{
@@ -49,7 +50,8 @@ const routes: Routes = [
     FormsModule,
     HttpModule,
     RouterModule.forRoot(routes),
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    BootstrapModalModule
   ],
   providers: [],
   bootstrap: [AppComponent]

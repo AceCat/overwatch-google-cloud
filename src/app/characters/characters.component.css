@@ -39,6 +39,14 @@
 	margin-top: 22%;
 }
 
+.suggestionInput{
+	width: 75%;
+}
+
+.explanationInput {
+	height: 50%;
+}
+
 table {
 	border-collapse: collapse;
 }
