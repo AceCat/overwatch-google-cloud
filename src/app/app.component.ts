@@ -12,7 +12,6 @@ export class AppComponent {
 
     constructor(private router: Router) {}
 
-
   	selectedCharacter = ""
 
 	characterNames = [
