@@ -174,7 +174,6 @@ export class CharactersComponent implements OnInit {
   		this.selectedCharacter.stats.healing = processedResponse.stats.healing;
   		this.selectedCharacter.stats.sustain = processedResponse.stats.sustain;
 
-
   		this.selectedCharacter.portrait = processedResponse.portrait;
   		this.selectedCharacter.health = processedResponse.health;
   		this.selectedCharacter.description = processedResponse.description;
