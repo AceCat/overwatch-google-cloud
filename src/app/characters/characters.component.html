@@ -51,21 +51,7 @@
 </div>
 
 	<div class='row'>
-	<div>
-		<input [(ngModel)]="newAbility.name" placeholder="Name"/>
-	    <input [(ngModel)]="newAbility.description" placeholder="Description"/>
-	    <input [(ngModel)]="newAbility.image" placeholder="Image Url"/>
 
-	    <input [(ngModel)]="newAbility.abilityStats.damage" placeholder="Damage"/>
-	    <input [(ngModel)]="newAbility.abilityStats.disruption" placeholder="Disruption"/>
-	    <input [(ngModel)]="newAbility.abilityStats.protection" placeholder="Protection"/>
-	    <input [(ngModel)]="newAbility.abilityStats.mobility" placeholder="Mobility"/>
-	    <input [(ngModel)]="newAbility.abilityStats.sustain" placeholder="Sustain"/>
-	    <input [(ngModel)]="newAbility.abilityStats.healing" placeholder="Healing"/>
-
-	    <button (click)="postAbility()">Submit</button>
-    </div>
-    <br />
     <br />
 
     <div class='row noMargin'>
@@ -96,20 +82,34 @@
     			<td>{{ability.abilityStats.sustain}}</td>
     			<td>{{ability.abilityStats.healing}}</td>
 
-    			<button class='btn-primary' (click)='toggleCollapse(ability._id)' data-toggle='.collapse' attr.data-target='{{ability.id}}'>Make a suggestion</button>
+                <button type="button" class="btn-primary" data-toggle="modal" [attr.data-target]="'#' + ability._id">Make a suggestion</button>
 
     			<br />
 
 
 
-    			<div class='collapse' id='{{ability._id}}'>
+            <div id="{{ability._id}}" class="modal fade" role="dialog">
+                <div class="modal-dialog">
+
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h4 class="modal-title">Suggest a Change for {{ability.name}}</h4>
+
+                            <button type="button" class="close" data-dismiss="modal">&times;</button>
+                        </div>
+                        <div class="modal-body">
+
     				<label for='contributor'>Contributor</label>
-    				<input  class='suggestionInput explanationInput' id='contributor' [(ngModel)]="newSuggestion.contributor" placeholder='Contributor Name/Alias'/>
+    				<input  class='suggestionInput' id='contributor' [(ngModel)]="newSuggestion.contributor" placeholder='Contributor Name/Alias'/>
                     
                     <br />
+                    <br />
 
-    				<label for='Explanation'>Explanation</label>
-    				<input class='suggestionInput explanationInput'[(ngModel)]="newSuggestion.explanation" placeholder='Explanation of suggestion'/>
+                    <div class='explanationForm'>
+        				<label for='Explanation'>Explanation</label>
+        				<textarea class='suggestionInput explanationInput'[(ngModel)]="newSuggestion.explanation" placeholder='Explanation of suggestion'>
+                        </textarea>
+                    </div>
 
                     <br />
 
@@ -140,7 +140,14 @@
     				<label for='Healing'>Suggested Healing</label>
     				<input id='Healing' [(ngModel)]="newSuggestion.abilityStats.healing" placeholder='Healing'>
 
+
+                    </div>
+                    <div class="modal-footer">
+
     				<button class='btn-success suggestionBTN' (click)="postSuggestion(ability._id)">Submit</button>
+                    </div>
+                    </div>
+            </div>
 
     		</div>
     		</tr>

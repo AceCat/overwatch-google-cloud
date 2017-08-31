@@ -103,32 +103,8 @@ class Suggestion {
     ])
 
   ]
-
-//   [
-//   trigger('flyInOut', [
-  	
-//     state('in', style({transform: 'translateX(0)'})),
-//     transition('void => *', [
-//     query(':enter', [	
-//     stagger(500, [
-//       animate(2000, keyframes([
-//         style({opacity: 0, transform: 'translateX(-100%)', offset: 0}),
-//         style({opacity: 1, transform: 'translateX(15px)',  offset: 0.3}),
-//         style({opacity: 1, transform: 'translateX(0)',     offset: 1.0})
-//       ]))
-//       ])
-//     ]),
-//     transition('* => void', [
-//       animate(1000, keyframes([
-//         style({opacity: 1, transform: 'translateX(0)',     offset: 0}),
-//         style({opacity: 1, transform: 'translateX(-15px)', offset: 0.7}),
-//         style({opacity: 0, transform: 'translateX(100%)',  offset: 1.0})
-//       ]))
-//     ])
-//     ])
-//   ])
-// ]
 })
+
 export class CharactersComponent implements OnInit {
 
   selectedCharacter: Character = new Character()
@@ -138,10 +114,6 @@ export class CharactersComponent implements OnInit {
   newSuggestion: Suggestion = new Suggestion()
 
   showHide: false;
-
-  // abilities: Ability[] = [];
-
-
 
   constructor(private route: ActivatedRoute, private http: Http, private router: Router) {
   }
@@ -155,8 +127,6 @@ export class CharactersComponent implements OnInit {
   next: number = 0;
   staggeringAbilities: any[] = [];
   abilitiesLength;
-
-
 
   individualRadarChart;
 
@@ -251,7 +221,8 @@ export class CharactersComponent implements OnInit {
 		options: {
 			scale: {
 				ticks: {
-					min: -5
+					min: -5,
+          max: 100
 				}
 		},
         	legend: {
@@ -274,6 +245,7 @@ export class CharactersComponent implements OnInit {
     this.http.post('https://overwhich-server.herokuapp.com/suggestion', this.newSuggestion).subscribe(response => {
       console.log(response.json())
     })
+    location.reload();
   };
 
   toggleCollapse(target){
